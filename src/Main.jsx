@@ -39,7 +39,8 @@ export default class Main extends Component {
             <Fragment>
                 <div className="container-fluid main p-3">
                     <div className="container">
-                        {Array.isArray(this.props.data) &&
+                        {console.log(this.props.data)}
+                        {Array.isArray(this.props.data) && (this.props.data.length > 0) ?
                             this.props.data.map((element, index) => {
                                 return (
                                     <div
@@ -80,7 +81,7 @@ export default class Main extends Component {
                                         </div>
                                     </div>
                                 );
-                            })}
+                            }) : (<p className="alert">Tidak ada shoping list</p>)}
                     </div>
                 </div>
 
