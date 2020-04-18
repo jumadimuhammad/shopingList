@@ -81,7 +81,7 @@ export default class Main extends Component {
                                         </div>
                                     </div>
                                 );
-                            }) : (<p className="alert">Tidak ada shoping list</p>)}
+                            }) : (<p className="alert">Tidak ada shopping list</p>)}
                     </div>
                 </div>
 
