@@ -11,6 +11,7 @@ function App() {
         <Fragment>
             <Navigasi />
             <Form />
+
         </Fragment>
     );
 }

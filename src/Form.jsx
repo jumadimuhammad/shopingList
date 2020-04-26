@@ -3,7 +3,7 @@
 import React, { Component, Fragment } from "react";
 import "./form.scss";
 import Moment from "moment";
-import Main from "./Main";
+import Main from "./Content";
 
 export default class Form extends Component {
     state = {
@@ -14,6 +14,15 @@ export default class Form extends Component {
     };
 
     getData = () => localStorage.getItem("shopingList");
+
+    handleChange = (event) => {
+        const eventValue = event.target.value;
+        const eventName = event.target.name;
+
+        this.setState((prevState) => ({
+            [eventName]: eventValue,
+        }));
+    };
 
     handleSubmit = (event) => {
         event.preventDefault();
@@ -32,17 +41,6 @@ export default class Form extends Component {
 
         localStorage.setItem("shopingList", JSON.stringify(data));
         window.location.reload();
-    };
-
-    handleChange = (event) => {
-        const eventValue = event.target.value;
-        const eventName = event.target.name;
-
-        console.log(eventName);
-
-        this.setState((prevState) => ({
-            [eventName]: eventValue,
-        }));
     };
 
     render() {
@@ -92,8 +90,9 @@ export default class Form extends Component {
                                         </div>
                                     </div>
                                     <button
-                                        className="btn btn-warning btn-block my-2"
+                                        className="btn btn-block my-2"
                                         type="submit"
+                                        onClick={() => {}}
                                     >
                                         Tambah
                                     </button>
