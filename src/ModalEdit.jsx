@@ -26,21 +26,22 @@ function ModalEdit(props) {
                     initialValues={{
                         id: props.id,
                         nama: props.id !== "" && props.data[props.id].nama,
-                        deskripsi: props.id !== "" && props.data[props.id].deskripsi,
+                        deskripsi:
+                            props.id !== "" && props.data[props.id].deskripsi,
                         gambar: props.id !== "" && props.data[props.id].gambar,
                         createdAt: Moment().format("MMMM Do YYYY, h:mm:ss a"),
                     }}
                     enableReinitialize={true}
                     validate={(values) => {
                         const errors = {};
-                        if (
-                            values.nama === "" ||
-                            values.deskripsi === "" ||
-                            values.gambar === ""
-                        ) {
-                            errors.nama = "Required";
-                            errors.deskripsi = "Required";
-                            errors.gambar = "Required";
+                        if (values.nama === "") {
+                            errors.nama = "Barang tidak boleh kosong";
+                        }
+                        if (values.deskripsi === "") {
+                            errors.deskripsi = "Deskripsi tidak boleh kosong";
+                        }
+                        if (values.gambar === "") {
+                            errors.gambar = "Url gambar tidak boleh kosong";
                         }
                         return errors;
                     }}
